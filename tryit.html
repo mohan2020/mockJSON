@@ -3,7 +3,7 @@
     <head>
         <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
         <script type="text/javascript" src="js/jquery.mockjson.js"></script>
-        <script type="text/javascript" src="js/tryit.js"></script>
+        <script type="text/javascript" src="js/ccda.js"></script>       
         
 
         <style type="text/css">
@@ -17,7 +17,7 @@
             font-family: Georgia, 'Hiragino Mincho Pro', serif;
             font-size:14px;
             line-height:1.5;
-            overflow:hidden;
+            overflow-y:scroll; 
         }
         
         h1, h2, h3, h4, h5, p, pre {
@@ -76,11 +76,12 @@
         
         #template {
             left:20%;
-            right:40%;
+            right:50%;
+            /*display: none; */
         }
         
         #result {
-            left:60%;
+            left:50%;
         }
         
         .buttons {
@@ -116,11 +117,6 @@
     <div id="keywords">
         <h1>mockJSON</h1>
         <div class="inner">
-            <p class="intro">MockJSON is a plugin for jQuery that can hijack 
-            JSON and JSONP requests and respond with randomly generated JSON 
-            data. More info <a href="index.html">can be found here</a>.</p>
-            <p>Enter your JSON template in the area on the left and click <em>generate</em>
-            to see mockJSON in action.</p>
             <h2>Keywords</h2>
             <ul>
             </ul>
@@ -128,19 +124,28 @@
     </div>
     
     <div id="template">
-        <h1>Template</h1>
+        <!--h1>Template</h1-->
         <div class="inner">
             <textarea></textarea>
-        </div>
-        <div class="buttons">
-            <button id="button-template1">template 1</button>
-            <button id="button-template2">template 2</button>
-            <button id="button-generate">generate!</button>
         </div>
     </div>
     
     <div id="result">
-        <h1>Result</h1>
+        <div class="buttons">
+<!--        <button id="button-template1">template 1</button>
+            <button id="button-template2">template 2</button> -->
+            <button id="button-template3">demographics</button>
+            <button id="button-template4">vitals</button>
+            <button id="button-template5">allergies</button>
+            <button id="button-template6">encounters</button>  
+            <button id="button-template7">immunizations</button>
+            <button id="button-template8">labs</button> 
+            <button id="button-template9">meds</button> 
+            <button id="button-template10">problems</button> 
+            <button id="button-template11">procedures</button> 
+            <button id="button-generate">generate!</button>
+        </div>
+        <!--h1>Result</h1-->
         <div class="inner">
             <textarea></textarea>
         </div>
