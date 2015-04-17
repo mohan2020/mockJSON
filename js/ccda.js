@@ -53,7 +53,7 @@ $(document).ready(function() {
             }
           },
           "provider": {
-            "organization": "@HOSPITALS",
+            "organization": "@LOREM @LAST_NAME Health System",
             "phone": "@NUM_3-@NUM_3-@NUM_4",
             "address": {
               "street": "@NUM_4 @LOREM Healthcare Drive",
@@ -79,8 +79,8 @@ $(document).ready(function() {
         "code_system_name": "LOINC",
         "bp_unit": "mm[Hg]",
         "date": "@DATE_YYYY-@DATE_MM-@DATE_DD T @TIME_HH:@TIME_MM:@TIME_SS Z",
-        "BP Diastolic": "@BP_DIA_NORM",
-        "BP Systolic": "@BP_SYS_NORM"
+        "BP Diastolic|60-79": 60,
+        "BP Systolic|90-119": 90
       }
     ],
     "BMI|5-5":[
@@ -90,7 +90,7 @@ $(document).ready(function() {
     "code_system": "2.16.840.1.113883.6.1",
     "code_system_name": "LOINC",
     "bmi_unit": "kg/m²",
-        "Body Mass Index": "@BMI_NORM"
+        "Body Mass Index|19-25": 19
       }
     ],
     "Height|5-5":[
@@ -162,7 +162,7 @@ var encounter = {
     "finding": {
       "name": "Pneumonia",
       "code": "233604007",
-      "code_system": "@SNOMED"
+      "code_system": "SNOMED"
     },
     "translation": {
       "name": null,
@@ -175,10 +175,8 @@ var encounter = {
       "code_system": "@SNOMED"
     },
     "location": {
-      "organization": "@HOSPITALS",
-      "street": [
-        "@NUM_4 @LOREM Health Dr."
-      ],
+      "organization": "@LOREM @LAST_NAME Health System",
+      "street": "@NUM_4 @LOREM Health Dr.",
       "city": "San Francisco",
       "state": "CA",
       "zip": "@ZIP",
@@ -331,7 +329,7 @@ var encounter = {
       "code_system": "@NCI"
     },
     "prescriber": {
-      "organization": "Community Health and Hospitals",
+      "organization": "@LOREM @LAST_NAME Health System",
       "person": null
     }
   }
@@ -377,10 +375,8 @@ var encounter = {
       "code_system": null
     },
     "performer": {
-      "organization": "@HOSPITALS",
-      "street": [
-        "@NUM_4 @LOREM Healthcare Dr"
-      ],
+      "organization": "@LOREM @LAST_NAME Health System",
+      "street": "@NUM_4 @LOREM Healthcare Dr",
       "city": "San Francisco",
       "state": "CA",
       "zip": "@ZIP",
@@ -399,11 +395,137 @@ var encounter = {
 
 /** end Procedures **/
 
+/** start sample FHIR patient resource **/
+{
+  "resourceType": "Patient",
+  "text": {
+    "status": "generated",
+    "div": "<div>\n      
+    <table>\n <tbody>\n <tr>\n            
+      <td>Name</td>\n <td>John Samuel <b>Appleseed</b> (&quot;John&quot;)</td>\n          
+    </tr>\n <tr>\n <td>Address</td>\n            
+    <td>1231 </td>\n </tr>\n <tr>\n            
+    <td>Contacts</td>\n <td>Home: unknown. Work: (03) 5555 6473</td>\n          
+</tr>\n <tr>\n <td>Id</td>\n            
+<td>MRN: 12345 (Acme Healthcare)</td>\n </tr>\n        
+</tbody>\n </table>\n </div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "label": "MRN",
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "12345",
+      "period": {
+        "start": "2001-05-06"
+      },
+      "assigner": {
+        "display": "Acme Healthcare"
+      }
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Chalmers"
+      ],
+      "given": [
+        "Peter",
+        "James"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Jim"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(03) 5555 6473",
+      "use": "work"
+    }
+  ],
+  "gender": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+        "code": "M",
+        "display": "Male"
+      }
+    ]
+  },
+  "birthDate": "1974-12-25",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "534 Erewhon St"
+      ],
+      "city": "PleasantVille",
+      "state": "Vic",
+      "zip": "3999"
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "partner"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": [
+          "du",
+          "Marché"
+        ],
+        "_family": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/Profile/iso-21090#qualifier",
+                "valueCode": "VV"
+              }
+            ]
+          },
+          null
+        ],
+        "given": [
+          "Bénédicte"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "+33 (237) 998327"
+        }
+      ]
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/1"
+  },
+  "active": true
+}
+
+/** end sample FHIR patient resource **/
 
 
 
     
-    $('#template textarea').val(formatJSON(meds));
+    $('#template textarea').val(formatJSON(demographics));
     $('#result textarea').val(''); // reset
     
 /*    $('#button-template1').click(function() {

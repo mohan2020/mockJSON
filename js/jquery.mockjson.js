@@ -170,6 +170,15 @@ function randomDate() {
 
 $.mockJSON.data = {
     NUMBER : "0123456789".split(''),
+    NUM_3 : function() {
+        return rand().toString().slice(2,5);
+        }, 
+    NUM_4 : function() {
+        return rand().toString().slice(3,7);
+        }, 
+    NUM_6 : function() {
+        return rand().toString().slice(3,10);
+        }, 
     LETTER_UPPER : "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(''),
     LETTER_LOWER : "abcdefghijklmnopqrstuvwxyz".split(''),
     MALE_FIRST_NAME : ["James", "John", "Robert", "Michael", "William", "David",
@@ -187,6 +196,28 @@ $.mockJSON.data = {
         "Taylor", "Thomas", "Hernandez", "Moore", "Martin", "Jackson",
         "Thompson", "White", "Lopez", "Lee", "Gonzalez", "Harris", "Clark",
         "Lewis", "Robinson", "Walker", "Perez", "Hall", "Young", "Allen"],
+    MARITAL_STATUS :["Married", "Single", "Unknown"],
+    ETHNICITY : ["Caucasian", "African American", "Asian", "Other"],
+    RACE : ["Caucasian", "African American", "Asian", "Other"],
+    STATES : ["California","Texas","Wisconsin","New York","Pennsylvania"],
+    ID_USE : ["usual", "official"],
+    ID_LABEL: ["MRN", "SSN", "DL"],
+    NAME_USE : ["usual", "official"],
+    TEL_USE : ["home", "work", "mobile"],
+    ADDR_USE: ["home", "work"],
+    ZIP : function() {
+        return rand().toString().slice(3,8);
+        }, 
+    RELATIONSHIP : ["Spouse", "Partner"],
+    BP_DIA_NORM : function () {
+        return Math.round(rand()*(79 - 60)) + 60;
+    },
+    BP_SYS_NORM : function () {
+        return Math.round(rand()*(119 - 90)) + 90;
+    },
+    BMI_NORM : function () {
+        return Math.round(rand()*(25 - 18.5)) + 18.5;
+    },
     EMAIL : function() {
         return getRandomData('@LETTER_LOWER')
             + '.'
@@ -215,7 +246,7 @@ $.mockJSON.data = {
         return pad(randomDate().getSeconds());
     },
     LOREM : function() {
-        var words = 'lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'.split(' ');
+        var words = 'Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit Eiusmod Tempor Incididunt Labore Dolore Magna Aliqua Minim Veniam Quis Nostrud Exercitation Ullamco Laboris Aliquip Commodo Consequat Dolor Reprehenderit Voluptate Velit Esse Cillum Dolore Fugiat Nulla Pariatur Excepteur Sint Occaecat Cupidatat Non Proident Culpa Officia Deserunt Mollit Laborum'.split(' ');
         var index = Math.floor(rand() * words.length);
         return words[index];
     },
