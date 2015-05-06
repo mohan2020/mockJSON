@@ -395,7 +395,7 @@ var encounter = {
 
 /** end Procedures **/
 
-/** start sample FHIR patient resource **/
+/** start sample FHIR patient resource 
 {
   "resourceType": "Patient",
   "text": {
