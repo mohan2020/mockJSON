@@ -205,6 +205,12 @@ $.mockJSON.data = {
     NAME_USE : ["usual", "official"],
     TEL_USE : ["home", "work", "mobile"],
     ADDR_USE: ["home", "work"],
+    ALLERGY_CRITICALITY: ["fatal","high","medium","low"],
+    ALLERGY_SENSITIVITY: ["allergy","intolerance","unknown"],
+    ALLERGY_SUBSTANCE: ["Bee Pollen", "Penicillin", "NEED MORE TBD"],
+    ALLERGY_REACTION: ["Hives", "Swelling", "NEED MORE TBD"],
+    RX_STATUS: ["active","suspended"], //full list includes "on hold","completed","entered in error","stopped","superceded"
+    RX_DISPLAY: ["DILTIAZEM 240 MG ER capsule","LEVOTHYROXINE 100 MCG tablet","SIMVASTATIN 40 MG tablet"],
     ZIP : function() {
         return rand().toString().slice(3,8);
         }, 
