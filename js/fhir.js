@@ -4,12 +4,10 @@ $(document).ready(function() {
 
     /** start sample FHIR patient resource **/
 var patient = {
-        "patients|5-5":[
+        "patients|20-20":[
 {
   "resourceType": "Patient",
-  "text": {
-    "status": "generated"
-  },
+  "_id": "@PATIENT_ID",
   "identifier|1-3": [
     {
       "use": "@ID_USE",
@@ -121,7 +119,7 @@ var patient = {
     }
   ],
   "managingOrganization": {
-    "reference": "Organization/1"
+    "reference": "organization/@ORG_ID"
   },
   "active": true
 }
@@ -140,7 +138,7 @@ var allergies = {
   "entry|1-3": [
     {
       "title": "Entry for AllergyIntolerance",
-      "id": "@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+      "_id": "@ALLERGY_ID",
       "updated": "2015-05-16T10:47:49",
       "published": "2015-05-16T10:47:49",
       "content": {
@@ -156,20 +154,20 @@ var allergies = {
           }
         ],
         "subject": {
-          "reference": "patient/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
-          "display": "John Appleseed"
+          "reference": "patient/@PATIENT_ID",
+          "display": "@MALE_FIRST_NAME @LAST_NAME"
         },
         "substance": {
-          "reference": "substance/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+          "reference": "substance/@SUBSTANCE_ID",
           "display": "@ALLERGY_SUBSTANCE"
         },
         "reaction|1-3": [
           {
-            "reference": "/AdverseReaction/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+            "reference": "/AdverseReaction/@ADVERSE_ID",
             "display": "@ALLERGY_REACTION"
           },
           {
-            "reference": "/AdverseReaction/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+            "reference": "/AdverseReaction/@ADVERSE_ID",
             "display": "@ALLERGY_REACTION"
           }
         ]
@@ -178,11 +176,12 @@ var allergies = {
   ]
 }
 ]
-}
+};
 
 /** end sample allergyIntolerance resource **/
 
 /** Begin sample medicationPrescription resource **/
+
 var medications = {
         "medicationPrescription|2-2":[
 {
@@ -190,7 +189,7 @@ var medications = {
   "entry|2-5": [
     {
       "title": "Entry for MedicationPrescription",
-      "id": "medicationPrescription/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+      "_id": "medicationPrescription/@MEDRX_ID",
       "updated": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "published": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "content": {
@@ -210,14 +209,14 @@ var medications = {
           }
         ],
         "patient": {
-          "reference": "patient/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
-          "display": "John Appleseed"
+          "reference": "patient/@PATIENT_ID",
+          "display": "@MALE_FIRST_NAME @LAST_NAME"
         },
         "prescriber": {
-          "reference": "Practitioner/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER"
+          "reference": "Practitioner/@PROVIDER_ID"
         },
         "medication": {
-          "reference": "medication/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+          "reference": "medication/@MED_ID",
           "display": "@RX_DISPLAY"
         },
         "dosageInstruction": [
@@ -272,7 +271,7 @@ var medications = {
   "entry|2-5": [
     {
       "title": "Entry for MedicationPrescription",
-      "id": "medicationPrescription/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+      "_id": "medicationPrescription/@MEDRX_ID",
       "updated": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "published": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "content": {
@@ -292,14 +291,14 @@ var medications = {
           }
         ],
         "patient": {
-          "reference": "patient/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
-          "display": "Carlton Lasseter"
+          "reference": "patient/@PATIENT_ID",
+          "display": "@MALE_FIRST_NAME @LAST_NAME"
         },
         "prescriber": {
-          "reference": "Practitioner/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER"
+          "reference": "Practitioner/@PROVIDER_ID"
         },
         "medication": {
-          "reference": "medication/@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER-@NUM_3@LETTER_LOWER@NUM_4@LETTER_LOWER",
+          "reference": "medication/@MED_ID",
           "display": "@RX_DISPLAY"
         },
         "dosageInstruction": [
@@ -312,7 +311,7 @@ var medications = {
                   "system": "urn:oid:1.2.840.114350.1.13.327.1.7.4.698288.330",
                   "code": "15",
                   "display": "Oral",
-                  "primary": false
+                  "primary|0-1": true
                 }
               ]
             },
@@ -350,10 +349,105 @@ var medications = {
   ]
 }
 ]
-}
-
-
+};
 /** End sample medicationPrescription resource **/
+
+
+/** Start example organization resource **/
+
+var organizations = {
+    "organization|10-10":[
+{
+  "resourceType": "Organization",
+  "_id" : "@ORG_ID",
+  "identifier|1-2": [
+    {
+      "use": "official",
+      "system": "urn:oid:2.16.528.1",
+      "value": "@NUM_6"
+    },
+    {
+      "use": "usual",
+      "system": "urn:oid:2.16.840.1.113883.2.4.6.1",
+      "value": "@NUM_6"
+    }
+  ],
+  "name": "@LOREM Healthcare",
+  "type": {
+    "coding|2-2": [
+      {
+        "system": "urn:oid:2.16.840.1.113883.2.4.15.1060",
+        "code": "V6",
+        "display": "University Medical Hospital"
+      },
+      {
+        "system": "http://hl7.org/fhir/organization-type",
+        "code": "prov",
+        "display": "Healthcare Provider"
+      }
+    ]
+  },
+  "telecom|1-1": [
+    {
+      "system": "phone",
+      "value": "@NUM_3-@NUM_3-@NUM_4",
+      "use": "work"
+    }
+  ],
+  "address|1-2": [
+    {
+      "use": "work",
+      "line|1-1": [
+        "@NUM_3  @LOREM , Apt @NUM_3"
+      ],
+      "city": "@LAST_NAME",
+      "zip": "@ZIP"
+    },
+    {
+      "use": "work",
+      "line|1-1": [
+        "@NUM_3  @LOREM , Apt @NUM_3"
+      ],
+      "city": "@LAST_NAME",
+      "zip": "@ZIP"
+    }
+  ],
+  "contact|2-2": [
+    {
+      "purpose": {
+        "coding|1-2": [
+          {
+            "system": "http://hl7.org/fhir/contactentity-type",
+            "code": "@CONTACT_TYPE"
+          }
+        ]
+      },
+      "telecom|1-1": [
+        {
+          "system": "phone",
+          "value": "@NUM_3-@NUM_3-@NUM_4"
+        }
+      ]
+    }
+  ]
+}
+  ]
+};
+/** end example organization resource **/
+
+
+
+
+
+
+/** Start example  resource 
+
+var resourceNames = {
+    "resourceName|1-1":[
+
+  ]
+}
+/** end example  resource **/
 
     
     $('#template textarea').val(formatJSON(patient));
@@ -368,11 +462,14 @@ var medications = {
         $('#template textarea').val(formatJSON(allergies));
         $('#button-generate').click();
     }); 
-
     $('#button-template3').click(function() {
         $('#template textarea').val(formatJSON(medications));
         $('#button-generate').click();
     }); 
+    $('#button-template4').click(function() {
+        $('#template textarea').val(formatJSON(organizations));
+        $('#button-generate').click();
+    });     
     
 /*    $('#button-template2').click(function() {
         $('#template textarea').val(formatJSON(template2));
