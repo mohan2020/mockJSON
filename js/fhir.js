@@ -435,9 +435,112 @@ var organizations = {
 };
 /** end example organization resource **/
 
+/** Start practioners resource **/
 
+var practitioner = {
+    "practitioners|5-5":[
+{
+  "resourceType": "Practitioner",
+  "identifier|3-3": [
+    {
+      "use": "official",
+      "label": "DEA",
+      "system": "http://snomed.info/sct",
+      "value": "@PROVIDER_DEA"
+    },
+    {
+      "use": "official",
+      "label": "NPI",
+      "system": "http://snomed.info/sct",
+      "value": "PROVIDER_NPI"
+    },
+    {
+      "use": "official",
+      "label": "DUNS",
+      "system": "http://snomed.info/sct",
+      "value": "PROVIDER_DUNS"
+    }
+  ],
+  "name": {
+    "use": "official",
+    "family|1-1": [
+      "@LAST_NAME"
+    ],
+    "given|1-1": [
+      "FEMALE_FIRST_NAME"
+    ],
+    "prefix|1-1": [
+      "Dr."
+    ]
+  },
+  "telecom|1-1": [
+    {
+      "system": "phone",
+      "value": "@NUM_3-@NUM_3-@NUM_4",
+      "use": "work"
+    }
+  ],
+  "address": {
+    "use": "work",
+    "line|1-1": [
+      "@NUM_3  @LOREM , Apt @NUM_3"
+    ],
+    "city": "@LAST_NAME",
+    "zip": "@ZIP"
+  },
+  "gender": {
+    "coding|1-1": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "248152002",
+        "display": "Female"
+      }
+    ]
+  },
+  "birthDate": "1974-@DATE_MM-@DATE_DD",
+  "organization": {
+    "reference": "Organization/@ORG_ID"
+  },
+  "role|1-1": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "225304007",
+          "display": "Implementation of planned interventions"
+        }
+      ]
+    }
+  ],
+  "specialty|1-1": [
+    {
+      "coding|1-1": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394733009",
+          "display": "Cardiologist"
+        }
+      ]
+    }
+  ],
+  "qualification|1-1": [
+    {
+      "code": {
+        "coding|1-1": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "394603008",
+            "display": "Cardiothoracic surgery"
+          }
+        ]
+      }
+    }
+  ]
+}
 
-
+  ]
+};
+/** end practitioners resource **/
 
 
 /** Start example  resource 
@@ -449,6 +552,7 @@ var resourceNames = {
 }
 /** end example  resource **/
 
+
     
     $('#template textarea').val(formatJSON(patient));
     $('#result textarea').val(''); // reset
@@ -457,7 +561,6 @@ var resourceNames = {
         $('#template textarea').val(formatJSON(patient));
         $('#button-generate').click();
     });
-
     $('#button-template2').click(function() {
         $('#template textarea').val(formatJSON(allergies));
         $('#button-generate').click();
@@ -465,11 +568,15 @@ var resourceNames = {
     $('#button-template3').click(function() {
         $('#template textarea').val(formatJSON(medications));
         $('#button-generate').click();
-    }); 
+    });
     $('#button-template4').click(function() {
         $('#template textarea').val(formatJSON(organizations));
         $('#button-generate').click();
-    });     
+    });
+    $('#button-template5').click(function() {
+        $('#template textarea').val(formatJSON(practitioner));
+        $('#button-generate').click();
+    });    
     
 /*    $('#button-template2').click(function() {
         $('#template textarea').val(formatJSON(template2));
