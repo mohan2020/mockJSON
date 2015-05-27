@@ -7,7 +7,7 @@ var patient = {
         "patients|20-20":[
 {
   "resourceType": "Patient",
-  "_id": "@PATIENT_ID",
+  "id": "@PATIENT_ID",
   "identifier|1-3": [
     {
       "use": "@ID_USE",
@@ -138,7 +138,7 @@ var allergies = {
   "entry|1-3": [
     {
       "title": "Entry for AllergyIntolerance",
-      "_id": "@ALLERGY_ID",
+      "id": "@ALLERGY_ID",
       "updated": "2015-05-16T10:47:49",
       "published": "2015-05-16T10:47:49",
       "content": {
@@ -189,7 +189,7 @@ var medications = {
   "entry|2-5": [
     {
       "title": "Entry for MedicationPrescription",
-      "_id": "@MEDRX_ID",
+      "id": "@MEDRX_ID",
       "updated": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "published": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "content": {
@@ -271,7 +271,7 @@ var medications = {
   "entry|2-5": [
     {
       "title": "Entry for MedicationPrescription",
-      "_id": "@MEDRX_ID",
+      "id": "@MEDRX_ID",
       "updated": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "published": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "content": {
@@ -359,7 +359,7 @@ var organizations = {
     "organization|10-10":[
 {
   "resourceType": "Organization",
-  "_id" : "@ORG_ID",
+  "id" : "@ORG_ID",
   "identifier|1-2": [
     {
       "use": "official",
@@ -441,7 +441,7 @@ var practitioner = {
     "practitioners|5-5":[
 {
   "resourceType": "Practitioner",
-  "_id": "@PROVIDER_ID",
+  "id": "@PROVIDER_ID",
   "identifier|3-3": [
     {
       "use": "official",
