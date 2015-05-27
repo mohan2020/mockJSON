@@ -189,7 +189,7 @@ var medications = {
   "entry|2-5": [
     {
       "title": "Entry for MedicationPrescription",
-      "_id": "medicationPrescription/@MEDRX_ID",
+      "_id": "@MEDRX_ID",
       "updated": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "published": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "content": {
@@ -271,7 +271,7 @@ var medications = {
   "entry|2-5": [
     {
       "title": "Entry for MedicationPrescription",
-      "_id": "medicationPrescription/@MEDRX_ID",
+      "_id": "@MEDRX_ID",
       "updated": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "published": "2015-@DATE_MM-@DATE_DD T13:10:28",
       "content": {
@@ -441,6 +441,7 @@ var practitioner = {
     "practitioners|5-5":[
 {
   "resourceType": "Practitioner",
+  "_id": "@PROVIDER_ID",
   "identifier|3-3": [
     {
       "use": "official",
